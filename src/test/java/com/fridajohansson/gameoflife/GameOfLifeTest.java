@@ -9,8 +9,10 @@ public class GameOfLifeTest {
 
     @Test
     void callingGridBoardShuldNotReturnNull(){
-        GridBoard gridBoard = new GridBoard();
+        GridBoard gridBoard = new GridBoard(4,8);
         assertNotNull(gridBoard.gridBoardarray);
     }
+
+
 
 }
