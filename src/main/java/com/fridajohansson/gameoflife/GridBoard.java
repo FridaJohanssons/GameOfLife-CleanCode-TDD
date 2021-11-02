@@ -2,8 +2,8 @@ package com.fridajohansson.gameoflife;
 
 public class GridBoard {
 
-    int width;
 
+    int width;
     int height;
     int [][] gridBoardarray;
 
@@ -13,5 +13,33 @@ public class GridBoard {
 
         this.gridBoardarray = new int[width][height];
     }
+
+    public String printBoard(){
+        String result = "";
+        for (int i = 0; i<height; i++){
+            String cell = "";
+            for (int j = 0; j<width; j++){
+                if(this.gridBoardarray[j][i]==0){
+                    cell +=".";
+                    result=".";
+
+                }else{
+                    cell +="*";
+                    result="*";
+                }
+            }
+            System.out.println(cell);
+        }
+
+        return result;
+    }
+
+    public void setAlive(int i, int j){
+        this.gridBoardarray[i][j] =1;
+    }
+    public void setDead(int i, int j){
+        this.gridBoardarray[i][j] =0;
+    }
+
 
 }

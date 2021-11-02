@@ -8,11 +8,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameOfLifeTest {
 
     @Test
-    void callingGridBoardShuldNotReturnNull(){
+    void callingGridBoardShouldNotReturnNull(){
         GridBoard gridBoard = new GridBoard(4,8);
         assertNotNull(gridBoard.gridBoardarray);
     }
 
+    @Test
+    void seeIfALLCellIsDead() {
+        GridBoard gridBoard = new GridBoard(8, 4);
+        String answer = gridBoard.printBoard();
+        assertEquals(".", answer);
 
+    }
 
 }
