@@ -36,6 +36,45 @@ public class GameOfLifeTest {
         gridBoard.printBoard();
         assertEquals(0,answer);
     }
+    @Test
+    void seeIfCellHasTwoNeighbour(){
+        GridBoard gridBoard = new GridBoard(3,3);
+        gridBoard.setAlive(0,0);
+        gridBoard.setAlive(1,0);
+
+        int answer = gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        assertEquals(2,answer);
+    }
+    @Test
+    void seeIfCellHasFourNeighbour(){
+        GridBoard gridBoard = new GridBoard(3,3);
+        gridBoard.setAlive(0,0);
+        gridBoard.setAlive(1,0);
+        gridBoard.setAlive(2,0);
+        gridBoard.setAlive(2,2);
+
+        int answer = gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        assertEquals(4,answer);
+    }
+    @Test
+    void seeIfCellHasEightNeighbour(){
+        GridBoard gridBoard = new GridBoard(3,3);
+        gridBoard.setAlive(0,0);
+        gridBoard.setAlive(1,0);
+        gridBoard.setAlive(2,0);
+        gridBoard.setAlive(2,2);
+        gridBoard.setAlive(0,1);
+        gridBoard.setAlive(0,2);
+        gridBoard.setAlive(1,2);
+        gridBoard.setAlive(2,1);
+
+        int answer = gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        assertEquals(8,answer);
+    }
+
 
 
 
