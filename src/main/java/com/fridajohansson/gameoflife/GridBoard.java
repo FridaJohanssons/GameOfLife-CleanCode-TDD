@@ -2,6 +2,9 @@ package com.fridajohansson.gameoflife;
 
 public class GridBoard {
 
+    //J = height
+    //i= with
+
     int width;
     int height;
     int [][] gridBoardarray;
@@ -14,11 +17,13 @@ public class GridBoard {
     }
 
     public String printBoard(){
+        System.out.println("----");
         String result = "";
-        for (int i = 0; i<height; i++){
+
+        for (int i = 0; i<width; i++){
             String cell = "";
-            for (int j = 0; j<width; j++){
-                if(this.gridBoardarray[j][i]==0){
+            for (int j = 0; j<height; j++){
+                if(this.gridBoardarray[i][j]==0){
                     cell +=".";
                     result+=".";
 
@@ -29,31 +34,48 @@ public class GridBoard {
             }
             System.out.println(cell);
         }
-
+        System.out.println("----\n");
+        System.out.println("\n");
         return result;
     }
 
-    public void setAlive(int i, int j){
-        this.gridBoardarray[i][j] =1;
+    public int setAlive(int i, int j){
+        if(i < 0 || i >= width){
+            return 0;
+        }
+        if(j < 0 || j >= height){
+            return 0;
+        }
+        return gridBoardarray[i][j] =1;
     }
     public void setDead(int i, int j){
         this.gridBoardarray[i][j] =0;
     }
 
-    public int countNeighbours(int x, int y){
+    public int countNeighbours(int i, int j){
         int count = 0;
-        count += this.gridBoardarray[x-1][y-1];
-        count += this.gridBoardarray[x][y-1];
-        count += this.gridBoardarray[x+1][y-1];
+        count += isAlive(i-1,j-1);
+        count += isAlive(i,j-1);
+        count += isAlive(i+1,j-1);
 
-        count += this.gridBoardarray[x-1][y];
-        count += this.gridBoardarray[x+1][y];
+        count += isAlive(i-1,j);
+        count += isAlive(i+1,j);
 
-        count += this.gridBoardarray[x-1][y+1];
-        count += this.gridBoardarray[x][y+1];
-        count += this.gridBoardarray[x+1][y+1];
+        count += isAlive(i-1,j+1);
+        count += isAlive(i,j+1);
+        count += isAlive(i+1,j+1);
 
         return count;
+    }
+
+    public int isAlive(int i, int j){
+        if(i < 0 || i >= width){
+            return 0;
+        }
+        if(j < 0 || j >= height){
+            return 0;
+        }
+        return gridBoardarray[i][j];
     }
 
 }

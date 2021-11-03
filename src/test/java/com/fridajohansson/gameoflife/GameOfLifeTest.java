@@ -74,6 +74,19 @@ public class GameOfLifeTest {
         gridBoard.printBoard();
         assertEquals(8,answer);
     }
+    //J = height
+    //i= with
+    @Test
+    void shouldReturnTwoNeighboursEvenThouTreeAliveButOneIsOutOfBoard(){
+        GridBoard gridBoard = new GridBoard(3,3);
+        gridBoard.setAlive(0,0);
+        gridBoard.setAlive(1,-1);
+        gridBoard.setAlive(2,0);
+
+        int answer = gridBoard.countNeighbours(1,0);
+        gridBoard.printBoard();
+        assertEquals(2,answer);
+    }
 
 
 
