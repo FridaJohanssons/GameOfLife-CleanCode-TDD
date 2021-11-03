@@ -2,7 +2,6 @@ package com.fridajohansson.gameoflife;
 
 public class GridBoard {
 
-
     int width;
     int height;
     int [][] gridBoardarray;
@@ -21,11 +20,11 @@ public class GridBoard {
             for (int j = 0; j<width; j++){
                 if(this.gridBoardarray[j][i]==0){
                     cell +=".";
-                    result=".";
+                    result+=".";
 
                 }else{
                     cell +="*";
-                    result="*";
+                    result+="*";
                 }
             }
             System.out.println(cell);

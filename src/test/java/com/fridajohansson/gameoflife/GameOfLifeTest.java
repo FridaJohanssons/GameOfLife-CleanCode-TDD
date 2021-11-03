@@ -15,10 +15,30 @@ public class GameOfLifeTest {
 
     @Test
     void seeIfALLCellIsDead() {
-        GridBoard gridBoard = new GridBoard(8, 4);
+        GridBoard gridBoard = new GridBoard(2, 2);
         String answer = gridBoard.printBoard();
-        assertEquals(".", answer);
-
+        assertEquals("....", answer);
     }
 
+    @Test
+    void seeIfCellIsAlive(){
+        GridBoard gridBoard = new GridBoard(2,2);
+        gridBoard.setAlive(0,0);
+        String answer = gridBoard.printBoard();
+
+        assertEquals("*...",answer);
+    }
+
+
+
+
 }
+
+
+//Först testa och se ifall alla celler är döda osv. sen kontrollera hur många grannar en cell har.
+//Sen göra metod som kollar hur många grannar cell har som man ska kunna använda.
+//Sen skriva test om en cell skulle hamna utanför boarden. Sen en metod som sorterar bort celler som
+//hamnar utanför.
+//Sen ska man testa ifall en cell dör ifall den inte har grannar, sen gör den metoden.
+//Sen ifall den överlever om den har grannar. Sen göra den metoden.
+//Sen se ifall den har tre grannar om det ska födas en ny. Sen göra det... osv..
