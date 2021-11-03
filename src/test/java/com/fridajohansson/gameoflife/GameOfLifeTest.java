@@ -28,7 +28,14 @@ public class GameOfLifeTest {
 
         assertEquals("*...",answer);
     }
-
+    @Test
+    void seeIfCellHasNeighbour(){
+        GridBoard gridBoard = new GridBoard(3,3);
+        gridBoard.setAlive(1,1);
+        int answer = gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        assertEquals(0,answer);
+    }
 
 
 

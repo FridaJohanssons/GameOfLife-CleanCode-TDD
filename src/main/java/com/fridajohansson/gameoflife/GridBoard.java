@@ -40,5 +40,20 @@ public class GridBoard {
         this.gridBoardarray[i][j] =0;
     }
 
+    public int countNeighbours(int x, int y){
+        int count = 0;
+        count += this.gridBoardarray[x-1][y-1];
+        count += this.gridBoardarray[x][y-1];
+        count += this.gridBoardarray[x+1][y-1];
+
+        count += this.gridBoardarray[x-1][y];
+        count += this.gridBoardarray[x+1][y];
+
+        count += this.gridBoardarray[x-1][y+1];
+        count += this.gridBoardarray[x][y+1];
+        count += this.gridBoardarray[x+1][y+1];
+
+        return count;
+    }
 
 }
