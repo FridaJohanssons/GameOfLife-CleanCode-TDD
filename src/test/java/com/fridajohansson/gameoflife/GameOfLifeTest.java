@@ -76,6 +76,7 @@ public class GameOfLifeTest {
     }
     //J = height
     //i= with
+    //the with and height is reversed
     @Test
     void shouldReturnTwoNeighboursEvenThouTreeAliveButOneIsOutOfBoard(){
         GridBoard gridBoard = new GridBoard(3,3);

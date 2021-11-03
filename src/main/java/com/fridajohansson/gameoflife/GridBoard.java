@@ -4,6 +4,7 @@ public class GridBoard {
 
     //J = height
     //i= with
+    //the with and height is reversed
 
     int width;
     int height;
