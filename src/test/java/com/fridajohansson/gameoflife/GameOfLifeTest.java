@@ -38,11 +38,12 @@ public class GameOfLifeTest {
     }
     @Test
     void seeIfCellHasTwoNeighbour(){
-        GridBoard gridBoard = new GridBoard(3,3);
+        GridBoard gridBoard = new GridBoard(4,3);
         gridBoard.setAlive(0,0);
         gridBoard.setAlive(1,0);
+        gridBoard.setAlive(3,0);
 
-        int answer = gridBoard.countNeighbours(1,1);
+        int answer = gridBoard.countNeighbours(2,0);
         gridBoard.printBoard();
         assertEquals(2,answer);
     }
@@ -81,10 +82,10 @@ public class GameOfLifeTest {
     void shouldReturnTwoNeighboursEvenThouTreeAliveButOneIsOutOfBoard(){
         GridBoard gridBoard = new GridBoard(3,3);
         gridBoard.setAlive(0,0);
-        gridBoard.setAlive(1,-1);
-        gridBoard.setAlive(2,0);
+        gridBoard.setAlive(-1,1);
+        gridBoard.setAlive(0,2);
 
-        int answer = gridBoard.countNeighbours(1,0);
+        int answer = gridBoard.countNeighbours(0,1);
         gridBoard.printBoard();
         assertEquals(2,answer);
     }

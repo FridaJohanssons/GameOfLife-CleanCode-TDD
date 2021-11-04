@@ -21,9 +21,9 @@ public class GridBoard {
         System.out.println("----");
         String result = "";
 
-        for (int i = 0; i<width; i++){
+        for (int j = 0; j<height; j++){
             String cell = "";
-            for (int j = 0; j<height; j++){
+            for (int i = 0; i<width; i++){
                 if(this.gridBoardarray[i][j]==0){
                     cell +=".";
                     result+=".";
@@ -67,6 +67,10 @@ public class GridBoard {
         count += isAlive(i+1,j+1);
 
         return count;
+    }
+
+    public void nextGen(){
+
     }
 
     public int isAlive(int i, int j){
