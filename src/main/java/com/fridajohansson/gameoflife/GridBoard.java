@@ -1,11 +1,6 @@
 package com.fridajohansson.gameoflife;
 
 public class GridBoard {
-
-    //J = height
-    //i= with
-    //the with and height is reversed
-
     int width;
     int height;
     int [][] gridBoardarray;
@@ -55,25 +50,46 @@ public class GridBoard {
 
     public int countNeighbours(int i, int j){
         int count = 0;
-        count += isAlive(i-1,j-1);
-        count += isAlive(i,j-1);
-        count += isAlive(i+1,j-1);
+        count += getState(i-1,j-1);
+        count += getState(i,j-1);
+        count += getState(i+1,j-1);
 
-        count += isAlive(i-1,j);
-        count += isAlive(i+1,j);
+        count += getState(i-1,j);
+        count += getState(i+1,j);
 
-        count += isAlive(i-1,j+1);
-        count += isAlive(i,j+1);
-        count += isAlive(i+1,j+1);
+        count += getState(i-1,j+1);
+        count += getState(i,j+1);
+        count += getState(i+1,j+1);
 
         return count;
     }
 
     public void nextGen(){
+        int [][] newBoard = new int[width][height];
+        for(int j = 0; j < height; j++){
+            for(int i = 0; i < width; i++){
+                int aliveNeighbours = countNeighbours(i,j);
+
+                if(getState(i,j) == 1){
+                    if(aliveNeighbours < 2){
+                        newBoard[i][j] = 0;
+                    } else if(aliveNeighbours == 2 || aliveNeighbours == 3){
+                        newBoard[i][j] =1;
+                    }else if (aliveNeighbours > 3){
+                        newBoard[i][j] = 0;
+                    }
+                }else{
+                    if(aliveNeighbours == 3){
+                        newBoard[i][j] = 1;
+                    }
+                }
+            }
+        }
+        this.gridBoardarray = newBoard;
 
     }
 
-    public int isAlive(int i, int j){
+    public int getState(int i, int j){
         if(i < 0 || i >= width){
             return 0;
         }
