@@ -75,9 +75,6 @@ public class GameOfLifeTest {
         gridBoard.printBoard();
         assertEquals(8,answer);
     }
-    //J = height
-    //i= with
-    //the with and height is reversed
     @Test
     void shouldReturnTwoNeighboursEvenThouTreeAliveButOneIsOutOfBoard(){
         GridBoard gridBoard = new GridBoard(3,3);
@@ -89,8 +86,24 @@ public class GameOfLifeTest {
         gridBoard.printBoard();
         assertEquals(2,answer);
     }
+    @Test
+    void shouldReturnEmptyEvenIfOneIsAliveOutsideTheBoard(){
+        GridBoard gridBoard = new GridBoard(2,3);
+        gridBoard.setAlive(2,1);
+        String answer = gridBoard.printBoard();
+        assertEquals("......", answer);
+    }
 
-
+    @Test
+    void whenCellHasFewerThanTwoNeighboursItDies(){
+        GridBoard gridBoard = new GridBoard(3,2);
+        gridBoard.setAlive(1,1);
+        gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        gridBoard.nextGen();
+        String answer = gridBoard.printBoard();
+        assertEquals("......",answer);
+    }
 
 
 }
