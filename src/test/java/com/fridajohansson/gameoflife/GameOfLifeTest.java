@@ -105,6 +105,19 @@ public class GameOfLifeTest {
         assertEquals("......",answer);
     }
 
+    @Test
+    void whenCellHasOneNeighboursItDies(){
+        GridBoard gridBoard = new GridBoard(3,2);
+        gridBoard.setAlive(1,1);
+        gridBoard.setAlive(2,1);
+        gridBoard.countNeighbours(1,1);
+        gridBoard.printBoard();
+        gridBoard.nextGen();
+        String answer = gridBoard.printBoard();
+        assertEquals("......",answer);
+    }
+
+
 
 }
 
