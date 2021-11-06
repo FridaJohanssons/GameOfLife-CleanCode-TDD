@@ -116,7 +116,18 @@ public class GameOfLifeTest {
         String answer = gridBoard.printBoard();
         assertEquals("......",answer);
     }
-
+    @Test
+    void whenCellHasThreeNeighboursItStartsToLive(){
+        GridBoard gridBoard = new GridBoard(3,2);
+        gridBoard.setAlive(1,1);
+        gridBoard.setAlive(2,1);
+        gridBoard.setAlive(0,1);
+        gridBoard.countNeighbours(0,1);
+        gridBoard.printBoard();
+        gridBoard.nextGen();
+        String answer = gridBoard.printBoard();
+        assertEquals(".*..*.",answer);
+    }
 
 
 }
