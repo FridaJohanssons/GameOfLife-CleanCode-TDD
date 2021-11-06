@@ -142,6 +142,18 @@ public class GameOfLifeTest {
         String answer = gridBoard.printBoard();
         assertEquals("*.**.*",answer);
     }
+    @Test
+    void whenCellHasTwoOrThreeNeighboursItLivesOn(){
+        GridBoard gridBoard = new GridBoard(8,4);
+        gridBoard.setAlive(4,1);
+        gridBoard.setAlive(3,2);
+        gridBoard.setAlive(4,2);
+        gridBoard.setAlive(5,0);
+        gridBoard.printBoard();
+        gridBoard.nextGen();
+        String answer = gridBoard.printBoard();
+        assertEquals("...........***.....**...........",answer);
+    }
 
 
 }
