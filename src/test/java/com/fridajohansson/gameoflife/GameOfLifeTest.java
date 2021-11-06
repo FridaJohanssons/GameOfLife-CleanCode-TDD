@@ -128,6 +128,20 @@ public class GameOfLifeTest {
         String answer = gridBoard.printBoard();
         assertEquals(".*..*.",answer);
     }
+    @Test
+    void whenCellHasMoreThanThreeNeighboursItDies(){
+        GridBoard gridBoard = new GridBoard(3,2);
+        gridBoard.setAlive(1,1);
+        gridBoard.setAlive(2,1);
+        gridBoard.setAlive(0,1);
+        gridBoard.setAlive(1,0);
+        gridBoard.setAlive(0,0);
+
+        gridBoard.printBoard();
+        gridBoard.nextGen();
+        String answer = gridBoard.printBoard();
+        assertEquals("*.**.*",answer);
+    }
 
 
 }
