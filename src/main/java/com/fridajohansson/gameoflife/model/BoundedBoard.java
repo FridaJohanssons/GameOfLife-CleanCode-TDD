@@ -34,10 +34,10 @@ public class BoundedBoard implements Board {
 
     @Override
     public CellState getState(int i, int j) {
-        if(i < 0 || i >= width){
+        if(i < 0 || i >= this.width){
             return CellState.DEAD;
         }
-        if(j < 0 || j >= height){
+        if(j < 0 || j >= this.height){
             return CellState.DEAD;
         }
         return gridBoardarray[i][j];
@@ -45,10 +45,10 @@ public class BoundedBoard implements Board {
 
     @Override
     public void setState(int i, int j, CellState cellState) {
-        if(i < 0 || i >= width){
+        if(i < 0 || i >= this.width){
             return;
         }
-        if(j < 0 || j >= height){
+        if(j < 0 || j >= this.height){
             return;
         }
         this.gridBoardarray[i][j] = cellState;
