@@ -1,6 +1,10 @@
 package com.fridajohansson.gameoflife;
 
 public class GridBoard {
+
+    public static int DEAD = 0;
+    public static int ALIVE = 1;
+
     int width;
     int height;
     int [][] gridBoardarray;
@@ -19,7 +23,7 @@ public class GridBoard {
         for (int j = 0; j<height; j++){
             String cell = "";
             for (int i = 0; i<width; i++){
-                if(this.gridBoardarray[i][j]==0){
+                if(this.gridBoardarray[i][j]== DEAD){
                     cell +=".";
                     result+=".";
 
@@ -74,17 +78,17 @@ public class GridBoard {
             for(int i = 0; i < width; i++){
                 int aliveNeighbours = countNeighbours(i,j);
 
-                if(getState(i,j) == 1){
+                if(getState(i,j) == ALIVE){
                     if(aliveNeighbours < 2){
-                        newBoard[i][j] = 0;
+                        newBoard[i][j] = DEAD;
                     } else if(aliveNeighbours == 2 || aliveNeighbours == 3){
-                        newBoard[i][j] =1;
+                        newBoard[i][j] =ALIVE;
                     }else if (aliveNeighbours > 3){
-                        newBoard[i][j] = 0;
+                        newBoard[i][j] = DEAD;
                     }
                 }else{
                     if(aliveNeighbours == 3){
-                        newBoard[i][j] = 1;
+                        newBoard[i][j] = ALIVE;
                     }
                 }
             }
@@ -95,10 +99,10 @@ public class GridBoard {
 
     public int getState(int i, int j){
         if(i < 0 || i >= width){
-            return 0;
+            return DEAD;
         }
         if(j < 0 || j >= height){
-            return 0;
+            return DEAD;
         }
         return gridBoardarray[i][j];
     }
