@@ -35,17 +35,21 @@ public class GridBoard {
         return result;
     }
 
-    public int setAlive(int i, int j){
+
+    public void setAlive(int i, int j){
+        this.setState(i,j,1);}
+    public void setDead(int i, int j){
+        this.setState(i,j,0);
+    }
+
+    public void setState(int i, int j, int state){
         if(i < 0 || i >= width){
-            return 0;
+            return;
         }
         if(j < 0 || j >= height){
-            return 0;
+            return;
         }
-        return gridBoardarray[i][j] =1;
-    }
-    public void setDead(int i, int j){
-        this.gridBoardarray[i][j] =0;
+        this.gridBoardarray[i][j] = state;
     }
 
     public int countNeighbours(int i, int j){
