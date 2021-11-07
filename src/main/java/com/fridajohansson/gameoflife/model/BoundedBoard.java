@@ -11,8 +11,13 @@ public class BoundedBoard implements Board {
     public BoundedBoard(int width, int height) {
         this.width = width;
         this.height = height;
-
         this.gridBoardarray = new CellState[width][height];
+
+        for(int j = 0; j< this.height; j++) {
+            for (int i = 0; i < this.width; i++) {
+                setState(i,j, CellState.DEAD);
+            }
+        }
     }
 
     @Override
