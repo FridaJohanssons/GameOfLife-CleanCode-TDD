@@ -34,21 +34,34 @@ public class BoundedBoard implements Board {
 
     @Override
     public CellState getState(int i, int j) {
-        return null;
+        if(i < 0 || i >= width){
+            return CellState.DEAD;
+        }
+        if(j < 0 || j >= height){
+            return CellState.DEAD;
+        }
+        return gridBoardarray[i][j];
     }
 
     @Override
     public void setState(int i, int j, CellState cellState) {
+        if(i < 0 || i >= width){
+            return;
+        }
+        if(j < 0 || j >= height){
+            return;
+        }
+        this.gridBoardarray[i][j] = cellState;
 
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return this.width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return this.height;
     }
 }
